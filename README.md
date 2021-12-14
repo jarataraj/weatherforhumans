@@ -1,0 +1,21 @@
+# Weather For Humans
+#### A website for an hourly forecast of the wet bulb globe temperature anywhere in the US
+My project is a website that returns an hourly forecast of the wet bulb globe temperature when the user enters a valid search location. It works by:
+1. using an api to geocode the user\'s seach string to a longitude and latitude
+2. using the National Weather Service api to get some weather data for that longitude and latitude
+3. using a python library to get solar and cloud cover data for that longitude and latitude
+4. using pandas to organize and process this data
+5. using a function written in C, along with python ctypes to use this function within python, to calculate the wet bulb globe temperature
+
+#### What is Wet Bulb Globe Temperature?
+Wet bulb globe temperature is an approximation of how well your body can cool the surface of your skin given the temperature, humidity, wind, and solar irradiation of the environment you are in. The wet bulb globe temperature is a more meaningful number than dry bulb temperature or heat index to those who are concerned with thermal stress, such as construction workers, sports teams, and the military (who funded the development of wbgt). A partly cloudy 95 degree day with low humidity and some wind presents low risk for thermal stress, while a sunny 95 degree day with high humidity and no wind will present high risk for thermal stress or injury.
+
+Because your body is always producing thermal energy, or heat, it must always have the ability to dump heat into the environment. Otherwise, the heat you produce just by living would accumulate in your body, and you would heat up and die. Fortunately, the body can cool the environment at the surface of the skin by sweating, so that heat will move from the warmer body to the cooler skin-surface environment, even on a hot day. The body works to maintain an average internal temperature of 98.6 degrees Farenheight, and to do so, it must cool the skin-surface environment to below this temperature. In fact, because the body produces heat just by living, it actually needs to cool the skin-surface environment to below 95 degrees Farenheight. Wet Bulb Globe temperature (WBGT) gives the lowest temperature your body will be able to cool the skin surface environment, so 95 degrees Farenheight is the limit of survivability for WBGT. Though is is almost never 95 WBGT on earth, temps can often reach the low 90s and high 80s WBGT. Additionally, the effects of climate change will result in more places experiencing more high-risk days for thermal stress. On days like these, people risk injury or death from thermal stress if they overwork themselves, do not hydrate, or ignore other precautions on a hot day.
+
+#### My interest in Wet Bulb Globe Temperature
+I created this site because I often use wet bulb globe temperature to determine whether it is safe to lead an outdoor adventure trip for my job as a trip leader. In 6 years of leading trips for various organizations I have had to cancel just once: during a 92 WBGT day intended for kayaking - an environment where the sun hits you from above and below. The number of high-risk days like that one will only increase with climate change. I have also experienced thermal stress first-hand, while mountain biking in Utah. After resting in the shade of an overhanging rock, I realized that some of the thoughts I had been having were not normal! They were  the unintelligible, irrational thoughts of an overheated brain, and in that moment I realized how dangerous thermal stress was. Since then I have used WGBT, but it hasn\'t been easy: there is no website that I know of that provides a WBGT forecast for any location. Instead, I usually manually enter weather data on an experimantal page of the National Weather Service that will calculate it for me. My hope is that this site will allow for more easily informed decision-making in high-heat environments.
+
+#### Points for improvement
+- better error handling: NWS api can sometimes take a couple of tries, reason for error is never communicated to user, often a 500 error from NWS that just requires more tries
+- progress page while data is gathered/crunched
+- page explaining what wet bulb globe temperature is and why it is important

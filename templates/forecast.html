@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <title>Weather for Humans</title>
+
+    </head>
+
+    <body>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main>
+            <h2>Wet Bulb Globe Temperature Forecast for {{ location }}</h2>
+            
+            <form action='/' method='post'>
+                <input autofocus name='location' type='text' placeholder='zipcode, address, city, etc.'>
+                <button type='submit'>Search another location</button>
+            </form>
+
+            {{ table|safe }}
+
+        </main>
+
+    </body>
+
+</html>
